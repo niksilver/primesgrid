@@ -17,14 +17,14 @@ class GridTest extends FlatSpec with ShouldMatchers{
     g(3,1) should equal (9*5)
   }
 
-  "textAt" should "be spaces followed by the right number" in {
-    val g = new Grid(Seq(7,5,4,9))
-    cross(0 to 3, 0 to 3).foreach { c =>
-      val (i, j) = c
-      val prod = g(i, j)
-      g.textAt(i, j) should startWith (" ")
-      g.textAt(i, j).trim should equal (prod.toString)
-    }
+  "textAt" should "give 1 space for a single digit number and a max 2 digit number" in {
+    val g = new Grid(Seq(1,2,3,4))
+    g.textAt(0,0) should equal (" 1")
+  }
+
+  it should "give no spaces for a two digit number and a max 2 digit number" in {
+    val g = new Grid(Seq(1,2,4,5))
+    g.textAt(2,2) should equal ("16")
   }
 
   "max" should "give the maximum number in the grid" in {
