@@ -9,4 +9,6 @@ object Primes {
 
   def seive(nums: Stream[Int]): Stream[Int] =
     nums.head #:: (nums.tail filter { _ % nums.head != 0})
+
+  val all = 1 #:: seive(from(2))
 }

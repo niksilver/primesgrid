@@ -30,4 +30,8 @@ class PrimesTest extends FlatSpec with ShouldMatchers {
     val nums = Primes.from(2)
     Primes.seive(nums).take(5).toList should equal (List(2, 3, 5, 7, 9))
   }
+
+  "Primes.all" should "give all primes from 1" in {
+    Primes.all.take(7).toList should equal (List(1, 2, 3, 5, 7, 9, 11))
+  }
 }
