@@ -7,5 +7,6 @@ object Primes {
 
   def from(start: Int): Stream[Int] = start #:: from(start+1)
 
-  def seive(nums: Stream[Int]): Stream[Int] = Stream(nums.head)
+  def seive(nums: Stream[Int]): Stream[Int] =
+    nums.head #:: (nums.tail filter { _ % nums.head != 0})
 }
