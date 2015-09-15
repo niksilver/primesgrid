@@ -19,8 +19,6 @@ class GridTest extends FlatSpec with ShouldMatchers{
 
   "textAt" should "be spaces followed by the right number" in {
     val g = new Grid(Seq(7,5,4,9))
-    g.textAt(0,3) should startWith (" ")
-    g.textAt(0,3).trim should equal ((7*9).toString)
     cross(0 to 3, 0 to 3).foreach { c =>
       val (i, j) = c
       val prod = g(i, j)
