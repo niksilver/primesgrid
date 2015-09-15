@@ -6,4 +6,6 @@ package org.pigsaw.primesgrid
 object Primes {
 
   def from(start: Int): Stream[Int] = start #:: from(start+1)
+
+  def seive(nums: Stream[Int]): Stream[Int] = Stream(nums.head)
 }
