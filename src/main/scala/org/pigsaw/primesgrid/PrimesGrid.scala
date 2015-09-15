@@ -10,7 +10,7 @@ import scala.annotation.tailrec
 class PrimesGrid(input: => String) {
 
   def size: Int = {
-    val repeatInput = Stream.iterate(input)( _ => input )
+    val repeatInput = Stream.continually(input)
     def isNumber(s: String) = s.matches("[0-9]+")
     def okayNumber(s: String) = {
       val n = BigInt(s)
