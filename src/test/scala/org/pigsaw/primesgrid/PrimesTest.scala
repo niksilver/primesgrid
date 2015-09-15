@@ -25,4 +25,9 @@ class PrimesTest extends FlatSpec with ShouldMatchers {
     val nums = Stream(3, 4, 5, 6, 7)
     Primes.seive(nums).toList should equal (List(3, 4, 5, 7))
   }
+
+  it should "give a good list of primes from 2" in {
+    val nums = Primes.from(2)
+    Primes.seive(nums).take(5).toList should equal (List(2, 3, 5, 7, 9))
+  }
 }
