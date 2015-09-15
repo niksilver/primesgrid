@@ -36,4 +36,14 @@ class GridTest extends FlatSpec with ShouldMatchers{
     val g = new Grid(Seq(1,5,3,1))
     g.max should equal (25)
   }
+
+  "asText" should "give the whole grid as text" in {
+    val g = new Grid(Seq(1,3,2,4))
+    val text = g.asText
+    val lines = text.lines.toList
+    lines(0) should equal (" 1  3  2  4")
+    lines(1) should equal (" 3  9  6 12")
+    lines(2) should equal (" 2  6  4  8")
+    lines(3) should equal (" 4 12  8 16")
+  }
 }

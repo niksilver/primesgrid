@@ -14,4 +14,11 @@ class Grid(s: Seq[Int]) {
   }
 
   val max = (s map { x => x*x }).max
+
+  val asText = {
+    val lines = for {
+      row <- s.indices
+    } yield (s.indices map {textAt(row, _)}).mkString(" ")
+    lines.mkString("\n")
+  }
 }
