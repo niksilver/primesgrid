@@ -19,4 +19,18 @@ class PrimesGridTest extends FlatSpec with ShouldMatchers {
     val g = new PrimesGrid(inputs())
     g.size should equal (99)
   }
+
+  it should "reject an Int of 0" in {
+    val it = Seq("aa", "0", "99").iterator
+    def inputs() = { it.next }
+    val g = new PrimesGrid(inputs())
+    g.size should equal (99)
+  }
+
+  it should "reject an Int of less than zero" in {
+    val it = Seq("aa", "-99", "101").iterator
+    def inputs() = { it.next }
+    val g = new PrimesGrid(inputs())
+    g.size should equal (101)
+  }
 }
