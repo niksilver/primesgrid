@@ -27,4 +27,13 @@ class GridTest extends FlatSpec with ShouldMatchers{
     }
   }
 
+  "max" should "give the maximum number in the grid" in {
+    val g = new Grid(Seq(1,2,3,4))
+    g.max should equal (16)
+  }
+
+  it should "give the maximum number in a different grid (again, to avoid faking)" in {
+    val g = new Grid(Seq(1,5,3,1))
+    g.max should equal (25)
+  }
 }
