@@ -13,8 +13,8 @@ class PrimesGrid(input: => String) {
     val repeatInput = Stream.iterate(input)( _ => input )
     def isNumber(s: String) = s.matches("[0-9]+")
     def okayNumber(s: String) = {
-      val n = Integer.parseInt(s)
-      n >= 1
+      val n = BigInt(s)
+      n >= 1 && n <= Integer.MAX_VALUE
     }
     val numOpt = repeatInput find { s => isNumber(s) && okayNumber(s) }
     Integer.parseInt(numOpt.get)

@@ -41,6 +41,14 @@ class PrimesGridTest extends FlatSpec with ShouldMatchers {
     g.size should equal (101)
   }
 
+  it should "reject a number that's bigger than the biggest Int" in {
+    val huge = BigInt(Integer.MAX_VALUE) + BigInt(1)
+    val it = Seq("aa", "9.9", huge.toString, "1000").iterator
+    def inputs() = { it.next }
+    val g = new PrimesGrid(inputs())
+    g.size should equal (1000)
+  }
+
   "asText" should "give the grid or primes as text" in {
     val g = new PrimesGrid({ "4" })
     val text = g.asText
