@@ -10,17 +10,14 @@ import scala.annotation.tailrec
 class PrimesGrid(input: => String) {
 
   def size: Int = {
-    @tailrec
-    def repeatInput: Int = {
-      try {
-        val num = Integer.parseInt(input)
-        if (num <= 0) throw new NumberFormatException
-        num
-      } catch {
-        case e: NumberFormatException => repeatInput
-      }
+    val repeatInput = Stream.iterate(input)( _ => input )
+    def isNumber(s: String) = s.matches("[0-9]+")
+    def okayNumber(s: String) = {
+      val n = Integer.parseInt(s)
+      n >= 1
     }
-    repeatInput
+    val numOpt = repeatInput find { s => isNumber(s) && okayNumber(s) }
+    Integer.parseInt(numOpt.get)
   }
 
   def asText: String = {
