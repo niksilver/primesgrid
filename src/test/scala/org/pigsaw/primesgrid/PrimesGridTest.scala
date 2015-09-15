@@ -40,4 +40,15 @@ class PrimesGridTest extends FlatSpec with ShouldMatchers {
     val g = new PrimesGrid(inputs())
     g.size should equal (101)
   }
+
+  "asText" should "give the grid or primes as text" in {
+    val g = new PrimesGrid({ "4" })
+    val text = g.asText
+    val lines = text.lines.toList
+    lines(0) should equal (" 1  2  3  5")
+    lines(1) should equal (" 2  4  6 10")
+    lines(2) should equal (" 3  6  9 15")
+    lines(3) should equal (" 5 10 15 25")
+  }
+
 }
