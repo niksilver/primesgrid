@@ -3,9 +3,6 @@ package org.pigsaw.primesgrid
 import org.scalatest.FlatSpec
 import org.scalatest.ShouldMatchers
 
-/**
- * Created by Nik on 15 Sep 2015.
- */
 class GridTest extends FlatSpec with ShouldMatchers {
 
   def cross[T](s1: Seq[T], s2: Seq[T]): Seq[(T,T)] = for { i <- s1; j <- s2 } yield (i, j)

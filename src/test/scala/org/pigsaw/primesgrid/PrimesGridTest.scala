@@ -2,9 +2,6 @@ package org.pigsaw.primesgrid
 
 import org.scalatest._
 
-/**
- * Created by Nik on 15 Sep 2015.
- */
 class PrimesGridTest extends FlatSpec with ShouldMatchers {
 
   "size" should "give an Int if an Int is given immediately" in {

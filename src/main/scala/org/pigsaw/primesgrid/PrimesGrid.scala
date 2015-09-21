@@ -5,10 +5,15 @@ import java.text.ParseException
 import scala.annotation.tailrec
 
 /**
- * Created by Nik on 15 Sep 2015.
+ * A square grid of primes.
+ * @param input  A function that will give a string representing the size of
+ *               the grid. It will be tried repeatedly until its value can
+ *               represent a positive integer.
  */
 class PrimesGrid(input: => String) {
 
+  /** The size of the grid.
+    */
   def size: Int = {
     val repeatInput = Stream.continually(input)
     def isNumber(s: String) = s.matches("[0-9]+")
@@ -20,6 +25,9 @@ class PrimesGrid(input: => String) {
     Integer.parseInt(numOpt.get)
   }
 
+  /**
+   * The grid as multi-line text.
+   */
   def asText: String = {
     val g = new Grid(Primes.all.take(size))
     g.asText
@@ -28,6 +36,9 @@ class PrimesGrid(input: => String) {
 
 object PrimesGrid {
 
+  /** Application entry point, where size of grid is taken
+    * from standard input, and the grid is sent to standard output.
+    */
   def main(args: Array[String]): Unit = {
     println("Enter an integer of 1 or more...")
     val grid = new PrimesGrid({ io.StdIn.readLine() })

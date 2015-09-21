@@ -2,9 +2,6 @@ package org.pigsaw.primesgrid
 
 import org.scalatest.{FlatSpec, ShouldMatchers}
 
-/**
- * Created by Nik on 15 Sep 2015.
- */
 class PrimesTest extends FlatSpec with ShouldMatchers {
 
   "sieve" should "include the first item in the seive" in {
