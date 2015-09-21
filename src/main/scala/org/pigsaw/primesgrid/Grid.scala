@@ -28,9 +28,7 @@ class Grid(s: Seq[Int]) {
   /** The grid as a multi-line string.
     */
   val asText = {
-    val lines = for {
-      row <- s.indices
-    } yield (s.indices map {textAt(row, _)}).mkString(" ")
-    lines.mkString("\n")
+    def rowAsText(row: Int) = (s.indices map {textAt(row, _)}).mkString(" ")
+    (s.indices map {rowAsText(_)}).mkString("\n")
   }
 }
