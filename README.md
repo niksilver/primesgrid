@@ -2,6 +2,8 @@
 
 Coding exercise to create a multiplication table of prime numbers. Requires user input and console output.
 
+See branch annotations for heavily-annotated source code.
+
 ## What I'm pleased with
 
 * The I/O is (mostly) externalised.
