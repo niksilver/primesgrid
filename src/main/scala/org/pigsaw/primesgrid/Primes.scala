@@ -5,8 +5,8 @@ package org.pigsaw.primesgrid
  */
 object Primes {
 
-  def seive(nums: Stream[Int]): Stream[Int] =
+  def sieve(nums: Stream[Int]): Stream[Int] =
     nums.head #:: (nums.tail filter { _ % nums.head != 0})
 
-  val all = 1 #:: seive(Stream.from(2))
+  val all = 1 #:: sieve(Stream.from(2))
 }
