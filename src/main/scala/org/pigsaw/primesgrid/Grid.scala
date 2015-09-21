@@ -49,9 +49,7 @@ class Grid(s: Seq[Int]) {
   // Finally all those rows (lines) are joined with a carriage return
   // to produce the whole grid.
   val asText = {
-    val lines = for {
-      row <- s.indices
-    } yield (s.indices map {textAt(row, _)}).mkString(" ")
-    lines.mkString("\n")
+    def rowAsText(row: Int) = (s.indices map {textAt(row, _)}).mkString(" ")
+    (s.indices map {rowAsText(_)}).mkString("\n")
   }
 }
