@@ -19,8 +19,8 @@ object Primes {
     // This recursive function `sieve` returns a value that's explained like this:
     // The head of `sieve` is the head of nums, and the rest of `sieve` is
     // the rest of nums, but include only those of its values which are not
-    // a factor of that first value (nums.head).
-    nums.head #:: (nums.tail filter { _ % nums.head != 0})
+    // a factor of that first value (nums.head), and sieve that.
+    nums.head #:: sieve(nums.tail filter { _ % nums.head != 0})
 
   /** All primes, starting at 1. */
   // Stream.from(n) is a standard Stream function that gives all integers
